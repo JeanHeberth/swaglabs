@@ -1,0 +1,5 @@
+base_uri: "https://www.saucedemo.com/"
+username: "standard_user"
+password: "secret_sauce"
+usernameIncorreto: "standard_error"
+passwordIncorreto: "secret_error"
