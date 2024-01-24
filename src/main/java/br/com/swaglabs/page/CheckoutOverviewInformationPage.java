@@ -1,6 +1,5 @@
 package br.com.swaglabs.page;
 
-import br.com.swaglabs.elements.CheckutOverviewElements;
 import br.com.swaglabs.elements.CheckutOverviewInformationsElements;
 import org.openqa.selenium.WebElement;
 

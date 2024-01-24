@@ -17,9 +17,6 @@ public class LoginPage extends LoginElements {
     public boolean validarUrl() {
         var url = WebDriverRunner.getWebDriver().getCurrentUrl().endsWith("/inventory.html");
         return url;
-    }  public boolean validarUrlParaLoginVazio() {
-        var url = WebDriverRunner.getWebDriver().getCurrentUrl().endsWith("https://www.saucedemo.com/");
-        return url;
     }
 
     public boolean validarMensagemDeErroDeLogin() {
