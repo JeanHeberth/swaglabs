@@ -1,7 +1,8 @@
-package br.com.swaglabs.tests.ct04;
+package br.com.swaglabs.tests.ct03;
 
 import br.com.swaglabs.page.*;
 import br.com.swaglabs.tests.base.BaseTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
@@ -12,16 +13,20 @@ import static org.testng.Assert.assertTrue;
 
 public class FazerCheckoutTest extends BaseTest {
 
-    LoginPage loginPage = new LoginPage();
+    HomePage homePage = new HomePage();
     CheckoutOverviewInformationPage checkoutOverviewInformationPage = new CheckoutOverviewInformationPage();
+
+    @BeforeMethod
+    public void realizarLogin() {
+        var userName = System.getenv("user_name");
+        var password = System.getenv("password");
+        homePage = fluxo
+                .acessarSwagLabs(userName, password);
+    }
 
     @Test
     public void realizarCheckout() {
-
-        // Realizando login
-        var userName = System.getenv("user_name");
-        var password = System.getenv("password");
-        loginPage.realizarLogin(userName, password)
+        homePage
                 .escolherItem("Sauce Labs Backpack")
                 .clicarNoBotaoAddToCart()
                 .acessarCarrinho()
