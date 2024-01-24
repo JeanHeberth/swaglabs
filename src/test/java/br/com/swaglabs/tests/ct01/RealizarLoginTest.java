@@ -1,11 +1,7 @@
 package br.com.swaglabs.tests.ct01;
 
-import br.com.swaglabs.page.HomePage;
 import br.com.swaglabs.page.LoginPage;
 import br.com.swaglabs.tests.base.BaseTest;
-import br.com.swaglabs.utils.PropertiesReader;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertTrue;

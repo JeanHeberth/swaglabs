@@ -1,7 +1,6 @@
 package br.com.swaglabs.tests.ct02;
 
 import br.com.swaglabs.page.HomePage;
-import br.com.swaglabs.page.LoginPage;
 import br.com.swaglabs.tests.base.BaseTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -31,8 +30,6 @@ public class AdicionarProdutoNoCarrinhoTest extends BaseTest {
                 .escolherItem("Sauce Labs Backpack")
                 .clicarNoBotaoAddToCart()
                 .clicarNoBotaoRemove();
-
-
     }
 
 }
