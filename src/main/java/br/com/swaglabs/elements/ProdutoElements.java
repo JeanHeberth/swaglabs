@@ -9,9 +9,9 @@ import static com.codeborne.selenide.Selenide.$x;
 public class ProdutoElements {
 
     protected SelenideElement botaoAdicionarAoCarrinho
-            = $(By.id("add-to-cart-sauce-labs-backpack"));
+            = $x("//button[text()=\"Add to cart\"]");
     protected SelenideElement botaoRemoverDoCarrinho
-            = $(By.id("remove-sauce-labs-backpack"));
+            = $x("//button[text()=\"Remove\"]");
 
     protected SelenideElement iconeCarrinho
             = $x("//*[@class='shopping_cart_link']");

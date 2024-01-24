@@ -27,7 +27,7 @@ public class AdicionarProdutoNoCarrinhoTest extends BaseTest {
     @Test
     public void RemoverProdutoNoCarrinho() {
         homePage
-                .escolherItem("Sauce Labs Backpack")
+                .escolherItem("Test.allTheThings() T-Shirt (Red)")
                 .clicarNoBotaoAddToCart()
                 .clicarNoBotaoRemove();
     }

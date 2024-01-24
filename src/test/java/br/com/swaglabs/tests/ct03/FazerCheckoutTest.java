@@ -27,7 +27,7 @@ public class FazerCheckoutTest extends BaseTest {
     @Test
     public void realizarCheckout() {
         homePage
-                .escolherItem("Sauce Labs Backpack")
+                .escolherItem("Test.allTheThings() T-Shirt (Red)")
                 .clicarNoBotaoAddToCart()
                 .acessarCarrinho()
                 .clicarNoBotaoCheckout()

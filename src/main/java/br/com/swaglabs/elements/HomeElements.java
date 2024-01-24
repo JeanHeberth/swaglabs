@@ -7,10 +7,7 @@ import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class HomeElements {
-
-    protected ElementsCollection itensEncontrados
-            = $$x("//*[@class='inventory_list']");
-
-    protected SelenideElement itemDesejado
-            = $x("//*[@class='inventory_item_name ']");
+    protected SelenideElement produtoPorId(String idDoProduto) {
+        return $x("//div[text()=\"" + idDoProduto + "\"]");
+    }
 }
