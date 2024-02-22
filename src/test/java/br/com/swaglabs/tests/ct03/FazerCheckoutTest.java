@@ -11,6 +11,7 @@ import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 
+
 public class FazerCheckoutTest extends BaseTest {
 
     HomePage homePage = new HomePage();
@@ -38,4 +39,5 @@ public class FazerCheckoutTest extends BaseTest {
         assertEquals(validandoInformacao, checkoutOverviewInformationPage.validarTexto("Luiz Augusto", "Santos de Souza", "72925245"));
         checkoutOverviewInformationPage.clicarNoBotaoContinue();
     }
+
 }
