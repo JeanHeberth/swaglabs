@@ -3,6 +3,7 @@ package br.com.swaglabs.tests.ct03;
 import br.com.swaglabs.page.CheckoutOverviewInformationPage;
 import br.com.swaglabs.page.HomePage;
 import br.com.swaglabs.tests.base.BaseTest;
+import br.com.swaglabs.utils.PropertiesReader;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -18,8 +19,8 @@ public class FazerCheckoutTest extends BaseTest {
 
     @BeforeMethod
     public void realizarLogin() {
-        var userName = System.getenv("user_name");
-        var password = System.getenv("password");
+        var userName = PropertiesReader.get("username");
+        var password = PropertiesReader.get("password");
         homePage = fluxo
                 .acessarSwagLabs(userName, password);
     }

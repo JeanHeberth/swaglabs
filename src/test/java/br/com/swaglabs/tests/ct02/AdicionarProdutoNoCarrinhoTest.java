@@ -2,6 +2,7 @@ package br.com.swaglabs.tests.ct02;
 
 import br.com.swaglabs.page.HomePage;
 import br.com.swaglabs.tests.base.BaseTest;
+import br.com.swaglabs.utils.PropertiesReader;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -11,8 +12,8 @@ public class AdicionarProdutoNoCarrinhoTest extends BaseTest {
 
     @BeforeMethod
     public void realizarLogin() {
-        var userName = System.getenv("user_name");
-        var password = System.getenv("password");
+        var userName = PropertiesReader.get("username");
+        var password = PropertiesReader.get("password");
         homePage = fluxo
                 .acessarSwagLabs(userName, password);
     }
@@ -25,7 +26,7 @@ public class AdicionarProdutoNoCarrinhoTest extends BaseTest {
     }
 
     @Test
-    public void RemoverProdutoNoCarrinho() {
+    public void removerProdutoNoCarrinho() {
         homePage
                 .escolherItem("Test.allTheThings() T-Shirt (Red)")
                 .clicarNoBotaoAddToCart()
