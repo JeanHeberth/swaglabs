@@ -2,6 +2,10 @@ package br.com.swaglabs.config;
 
 import br.com.swaglabs.utils.PropertiesReader;
 import com.codeborne.selenide.Configuration;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.clearBrowserCache;
@@ -14,7 +18,12 @@ public class BrowserConfig {
     private static void configSelenide() {
         Configuration.webdriverLogsEnabled = true;
         Configuration.remoteConnectionTimeout = 120000;
-        Configuration.remoteConnectionTimeout = 120000;
+        ChromeOptions options = new ChromeOptions();
+        Map<String, Object> prefs = new HashMap<>();
+        prefs.put("credentials_enable_service", false);
+        prefs.put("profile.password_manager_enabled", false);
+        options.setExperimentalOption("prefs", prefs);
+        Configuration.browserCapabilities = options;
     }
 
     public static void setup() {
