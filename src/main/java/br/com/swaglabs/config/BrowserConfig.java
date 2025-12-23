@@ -19,24 +19,42 @@ public class BrowserConfig {
     private static void configSelenide() {
         Configuration.webdriverLogsEnabled = true;
         Configuration.remoteConnectionTimeout = 120000;
+        Configuration.browser = "chrome";
+        Configuration.browserSize = "1920x1080";
+
+        // 🔥 HEADLESS controlado por ambiente
+        boolean headless = Boolean.parseBoolean(
+                System.getenv().getOrDefault("HEADLESS", "false")
+        );
+        Configuration.headless = headless;
+
         ChromeOptions options = new ChromeOptions();
+
         Map<String, Object> prefs = new HashMap<>();
         prefs.put("credentials_enable_service", false);
         prefs.put("profile.password_manager_enabled", false);
         options.setExperimentalOption("prefs", prefs);
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
+
+        // flags obrigatórias no CI
+        if (headless) {
+            options.addArguments("--headless=new");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--disable-gpu");
+        }
+
         options.addArguments("--disable-extensions");
-        options.addArguments("--disable-gpu");
+        options.addArguments("--remote-allow-origins=*");
+
         Configuration.browserCapabilities = options;
     }
+
 
     public static void setup() {
         configSelenide();
         clearBrowserCookies();
         clearBrowserCache();
         open(PropertiesReader.get("base_uri"));
-        getWebDriver().manage().window().maximize();
     }
 
     public static void tearDown() {
