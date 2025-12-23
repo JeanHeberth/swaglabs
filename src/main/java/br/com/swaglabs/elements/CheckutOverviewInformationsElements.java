@@ -17,6 +17,11 @@ public class CheckutOverviewInformationsElements {
     protected SelenideElement botaoContiue
             = $(By.id("continue"));
 
+    protected SelenideElement botaoRemove
+            =  $x("//button[data-test='remove-sauce-labs-backpack']");
+
     protected ElementsCollection campoDeInformacaoCheckout
             = $$x("//*[@class='checkout_info']");
+
+
 }

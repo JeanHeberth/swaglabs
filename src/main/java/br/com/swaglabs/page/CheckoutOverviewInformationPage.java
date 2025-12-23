@@ -12,9 +12,9 @@ public class CheckoutOverviewInformationPage extends CheckutOverviewInformations
         campoZipPostalCode.sendKeys(zipPostalCode);
     }
 
-    public CheckoutOverviewPage clicarNoBotaoContinue() {
+    public CheckoutOverviewInformationPage clicarNoBotaoContinue() {
         botaoContiue.click();
-        return new CheckoutOverviewPage();
+        return this;
 
     }
 
@@ -27,3 +27,4 @@ public class CheckoutOverviewInformationPage extends CheckutOverviewInformations
         return expectedValues;
     }
 }
+

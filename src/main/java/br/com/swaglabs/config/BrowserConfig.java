@@ -12,6 +12,7 @@ import static com.codeborne.selenide.WebDriverRunner.clearBrowserCache;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class BrowserConfig {
+
     private BrowserConfig() {
     }
 
@@ -23,6 +24,10 @@ public class BrowserConfig {
         prefs.put("credentials_enable_service", false);
         prefs.put("profile.password_manager_enabled", false);
         options.setExperimentalOption("prefs", prefs);
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-extensions");
+        options.addArguments("--disable-gpu");
         Configuration.browserCapabilities = options;
     }
 

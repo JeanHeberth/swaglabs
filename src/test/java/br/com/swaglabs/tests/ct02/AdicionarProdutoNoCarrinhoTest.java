@@ -22,7 +22,9 @@ public class AdicionarProdutoNoCarrinhoTest extends BaseTest {
     public void adicionarProdutoNoCarrinho() {
         homePage
                 .escolherItem("Sauce Labs Backpack")
-                .clicarNoBotaoAddToCart();
+                .clicarNoBotaoAddToCart()
+                .acessarCarrinho()
+                .validarProdutoNoCarrinho("Sauce Labs Backpack");
     }
 
     @Test
@@ -30,7 +32,12 @@ public class AdicionarProdutoNoCarrinhoTest extends BaseTest {
         homePage
                 .escolherItem("Test.allTheThings() T-Shirt (Red)")
                 .clicarNoBotaoAddToCart()
-                .clicarNoBotaoRemove();
+                .acessarCarrinho()
+                .validarProdutoNoCarrinho("Test.allTheThings() T-Shirt (Red)")
+                .clicarNoBotaoRemove()
+                .validarProdutoRemovidoNoCarrinho("Test.allTheThings() T-Shirt (Red)");
+
+
     }
 
 }

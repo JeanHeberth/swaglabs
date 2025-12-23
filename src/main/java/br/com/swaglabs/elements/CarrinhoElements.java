@@ -19,6 +19,14 @@ public class CarrinhoElements {
     protected SelenideElement botaoContiue
             = $(By.id("continue"));
 
+
+    protected SelenideElement produtoPorNome(String nomeProduto) {
+        return $x("//div[text()=\"" + nomeProduto + "\"]");
+    }
+
+    protected SelenideElement botaoRemove
+            = $x("//button[text()=\"Remove\"]");
+
     protected ElementsCollection campoDeInformacaoCheckout
             = $$x("//*[@class='checkout_info']");
 }

@@ -12,13 +12,10 @@ public class ProdutoPage extends ProdutoElements {
         return this;
     }
 
-    public ProdutoPage clicarNoBotaoRemove() {
-        botaoRemoverDoCarrinho.click();
-        return this;
-    }
 
     public CarrinhoPage acessarCarrinho() {
         iconeCarrinho.click();
         return new CarrinhoPage();
     }
+
 }
