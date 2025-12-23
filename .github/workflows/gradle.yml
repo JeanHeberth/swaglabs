@@ -25,15 +25,15 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
 
-      - name: Install Google Chrome
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v1
 
-      - name: Show browser versions
+      - name: Check Chrome version
+
         run: |
-          google-chrome --version || true
-          which google-chrome || true
+          google-chrome --version
+          which google-chrome
+      
 
       - name: Run tests (headless)
         run: ./gradlew clean test

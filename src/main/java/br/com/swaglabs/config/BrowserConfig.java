@@ -9,7 +9,6 @@ import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.clearBrowserCache;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class BrowserConfig {
 
