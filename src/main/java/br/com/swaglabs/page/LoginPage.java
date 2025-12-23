@@ -15,7 +15,7 @@ public class LoginPage extends LoginElements {
     }
 
     public boolean validarUrl() {
-        var url = WebDriverRunner.getWebDriver().getCurrentUrl().endsWith("/inventorys.html");
+        var url = WebDriverRunner.getWebDriver().getCurrentUrl().endsWith("/inventory.html");
         return url;
     }
 
