@@ -23,7 +23,7 @@ public class BrowserConfig {
 
         // 🔥 HEADLESS controlado por ambiente
         boolean headless = Boolean.parseBoolean(
-                System.getenv().getOrDefault("HEADLESS", "false")
+                System.getenv().getOrDefault("HEADLESS", "true")
         );
         Configuration.headless = headless;
 
