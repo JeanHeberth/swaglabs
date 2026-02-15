@@ -1,9 +1,8 @@
 package br.com.swaglabs.page;
 
 import br.com.swaglabs.elements.CheckutOverviewInformationsElements;
-import org.openqa.selenium.WebElement;
-
 import java.util.List;
+import java.util.Arrays;
 
 public class CheckoutOverviewInformationPage extends CheckutOverviewInformationsElements {
     public void preencherInformacaoCheckout(String firstName, String lastName, String zipPostalCode) {
@@ -19,12 +18,11 @@ public class CheckoutOverviewInformationPage extends CheckutOverviewInformations
     }
 
     public List<String> validarTexto(String firstName, String lastName, String zipPostalCode) {
-        List<String> expectedValues = List.of(firstName, lastName, zipPostalCode);
-        for (WebElement element : campoDeInformacaoCheckout) {
-            String value = element.getText();
-            expectedValues.contains(value);
-        }
-        return expectedValues;
+        // Retorna os valores preenchidos nos campos do checkout
+        return Arrays.asList(
+                campoFirstName.getValue(),
+                campoLastName.getValue(),
+                campoZipPostalCode.getValue()
+        );
     }
 }
-

@@ -5,6 +5,17 @@ plugins {
 group = 'br.com.swaglabs'
 version = '1.0-SNAPSHOT'
 
+// Centraliza versões para facilitar upgrades
+ext {
+    selenideVersion = '7.13.0'
+    testngVersion = '7.8.0'
+    webDriverManagerVersion = '6.2.0'
+    seleniumVersion = '4.11.0'
+    allureVersion = '2.21.0'
+    snakeYamlVersion = '2.2'
+    slf4jVersion = '2.0.7'
+}
+
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(17)
@@ -20,14 +31,30 @@ repositories {
 
 
 dependencies {
-    testImplementation 'org.testng:testng:7.8.0'
-    implementation 'com.codeborne:selenide:7.13.0'
-    implementation 'org.yaml:snakeyaml:2.2'
-    implementation 'org.slf4j:slf4j-nop:2.0.7'
+    testImplementation "org.testng:testng:${testngVersion}"
+    implementation "com.codeborne:selenide:${selenideVersion}"
+    implementation "org.seleniumhq.selenium:selenium-java:${seleniumVersion}"
+    implementation "io.github.bonigarcia:webdrivermanager:${webDriverManagerVersion}"
+    testImplementation "io.qameta.allure:allure-testng:${allureVersion}"
+    implementation "org.yaml:snakeyaml:${snakeYamlVersion}"
+    implementation "org.slf4j:slf4j-nop:${slf4jVersion}"
 }
 
 
+// Configuração da task de testes. Mantemos TestNG conforme projeto atual.
 test {
     useTestNG()
-}
 
+    // Expor propriedades que podem ser sobrescritas via linha de comando: -Dselenide.browser=firefox -Dselenide.headless=false
+    systemProperty 'selenide.browser', System.getProperty('selenide.browser', 'chrome')
+    systemProperty 'selenide.headless', System.getProperty('selenide.headless', 'true')
+    systemProperty 'selenide.timeout', System.getProperty('selenide.timeout', '10000')
+
+    testLogging {
+        events "passed", "skipped", "failed"
+        exceptionFormat "full"
+        showStandardStreams = true
+    }
+
+    // Recomendo não ativar paralelismo por default aqui — configure TestNG suites se necessário.
+}
